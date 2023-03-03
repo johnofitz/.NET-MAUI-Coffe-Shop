@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:JohnCoffee.Model"
+             xmlns:viewmodel="clr-namespace:JohnCoffee.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
+             Title="{Binding Heading}"
+             
+             x:Class="JohnCoffee.MainPage">
+
+
+    <Grid ColumnDefinitions="*,*"
+          ColumnSpacing="5"
+          RowDefinitions="*,Auto"
+          RowSpacing="0">
+     
+            <CollectionView BackgroundColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Product}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Menu">
+                    <Grid Padding="10">
+                     
+                        <Frame HeightRequest="165"
+                               BackgroundColor="Gainsboro">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=GoToProductCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            
+                            <Grid Padding="0">
+                                <Image Aspect="AspectFill"
+                                        HeightRequest="150"
+                                        WidthRequest="240"
+                                        Source="{Binding Image}"
+                                        HorizontalOptions="End"
+                                        />
+                               
+                                  
+                                        <Label Text="{Binding Title}"
+                                            Padding="20"
+                                            FontSize="Header"
+                                            HorizontalOptions="Center">
+                                        </Label>
+                               
+                                <VerticalStackLayout
+                                    Padding="30">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Small"
+                                           FontAttributes="Bold"
+                                           Margin="20,0,0,10"/>
+                                    <Label Text="{Binding Description}"
+                                           FontAttributes="Bold"
+                                           Margin="20,0,0,10"/>
+                                   
+                                        
+                                    <Label Text="{Binding Price}"
+                                           FontAttributes="Bold"
+                                           Margin="20,0,0,0"/>
+                                 
+                                    
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

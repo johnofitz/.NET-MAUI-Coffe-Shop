@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JohnCoffee.View.ProductPage"
+             xmlns:model="clr-namespace:JohnCoffee.Model"
+             xmlns:viewmodel="clr-namespace:JohnCoffee.ViewModel"
+             x:DataType="viewmodel:ProductViewModel"
+             Title="{Binding Menu.Name}">
+    
+    <ScrollView BackgroundColor="AliceBlue"
+                VerticalScrollBarVisibility="Always"
+                Margin="10">
+
+        <Grid RowDefinitions="*,Auto,*"
+              Padding="60">
+            <Border StrokeShape="RoundRectangle 40"
+                    Stroke="White"
+                    StrokeThickness="6"
+                    HeightRequest="120"
+                    WidthRequest="200"
+                    Margin="0,50,0,0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                <Image Aspect="AspectFill"
+                        HeightRequest="120"
+                        WidthRequest="200"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        Source="{Binding Menu.Image}"
+                        />
+            </Border>
+            <Label  
+                   Grid.Row="1"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   Text="{Binding Menu.Name}" 
+                   HorizontalOptions="Center"
+                   Margin="0,60,0,0"/>
+
+            <VerticalStackLayout Grid.Row="1" 
+                                 Padding="10" 
+                                 Spacing="10">
+
+                <Label Text="{Binding Menu.Description}"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       Margin="0,90,0,0"/>
+
+                <Label Text="{Binding Menu.Price, StringFormat='€ {0}'}"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20"/>
+
+                <Border StrokeShape="RoundRectangle 10"
+                        Stroke="lightGray"
+                        StrokeThickness="1"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        Margin="0,0,0,0"
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+                    <Label Text="{Binding Counter}"
+                            FontSize="18"
+                            FontFamily="Bold"
+                            TextColor="Black"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center" />
+
+
+                </Border>
+
+
+                <Grid ColumnDefinitions="*,*"
+                        ColumnSpacing="5"
+                        RowDefinitions="*,Auto"
+                        RowSpacing="0">
+
+                   
+                    <Button Text ="-"
+                            Command="{Binding DecrementCounterCommand}"
+                            FontSize="Default"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            BackgroundColor="LightGray"
+                            HorizontalOptions="End"
+                            MaximumHeightRequest="40"
+                            MaximumWidthRequest="40"
+                            Grid.Column="0"/>
+                    
+                    <Button Text ="+"
+                           Command="{Binding IncrementCounterCommand}"
+                            HorizontalOptions="Start"
+                            FontSize="Default"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            BackgroundColor="LightGray"
+                            MaximumHeightRequest="40"
+                            MaximumWidthRequest="40"
+                            Grid.Column="1"
+                            />
+
+                </Grid>
+               
+                <Button Text="Add to Cart" 
+                        Command="{Binding AddToCartCommand}"
+                        BackgroundColor="black"
+                        IsEnabled="{Binding IsNotBusy}"
+                        HorizontalOptions="Center" 
+                        WidthRequest="150" 
+                        Margin="4"/>
+
+                <Button Text="Checkout" 
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductViewModel}}, Path=GoToCheckoutCommand}"
+                        CommandParameter="{Binding .}"
+                        IsEnabled="{Binding IsNotBusy}"
+                        BackgroundColor="black"
+                        HorizontalOptions="Center" 
+                        WidthRequest="150" 
+                        Margin="4"
+                        />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

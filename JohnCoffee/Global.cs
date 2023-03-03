@@ -1,0 +1,11 @@
+﻿global using CommunityToolkit.Mvvm.ComponentModel;
+global using System.Runtime.CompilerServices;
+global using System.Collections.ObjectModel;
+global using CommunityToolkit.Mvvm.Input;
+global using System.ComponentModel;
+global using System.Diagnostics;
+global using JohnCoffee.ViewModel;
+global using JohnCoffee.Utility;
+global using JohnCoffee.View;
+global using JohnCoffee.Model;
+global using System.Text.Json;

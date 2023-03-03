@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JohnCoffee.OrderHistory"
+             xmlns:model="clr-namespace:JohnCoffee.Model"
+             xmlns:viewmodel="clr-namespace:JohnCoffee.ViewModel"
+             x:DataType="viewmodel:OrderHistoryViewModel"
+             Title="Order History">
+
+    <ScrollView>
+        <Frame BackgroundColor="AliceBlue">
+            <StackLayout
+                    BackgroundColor="White" 
+                    WidthRequest="500"
+                    Padding="20">
+                <CollectionView
+                        ItemsSource="{Binding History}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Basket">
+                            <StackLayout  Padding="20">
+                                <Label Text="{Binding MyTime}"
+                                       Margin="0,0,0,10"></Label>
+                                <Label Text="{Binding Id, StringFormat='Order No: {0}'}"
+                                       Margin="0,0,0,10"></Label>
+                                <Label Text="{Binding FullName, StringFormat='Name: {0}'}"></Label>
+
+                                <CollectionView ItemsSource="{Binding Orders}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="model:Order">
+                                            <Label Text="{Binding OrderName}">
+                                            </Label>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                                <Label Text="{Binding Total, StringFormat='€ {0}'}"
+                               Margin="0,0,0,0"/>
+                                <Label Text="-------------------------------------------------"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

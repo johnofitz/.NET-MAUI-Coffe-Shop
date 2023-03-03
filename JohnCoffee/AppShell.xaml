@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="JohnCoffee.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:JohnCoffee"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    FlyoutBackgroundColor="AliceBlue">
+
+    
+    <Shell.FlyoutHeader>
+        <Image Source="flyout.jpg"/>
+    </Shell.FlyoutHeader>
+
+        
+        <ShellContent
+        Title="Home"
+        Icon="home.jpg"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+
+    <ShellContent
+        Title="Order History"
+        Icon="history.png"
+        ContentTemplate="{DataTemplate local:OrderHistory}"
+        Route="OrderHistory" />
+
+    <ShellContent
+        Title="Shopping Cart"
+        Icon="cart.png"
+        ContentTemplate="{DataTemplate local:ShoppingCart}"
+        Route="ShoppingCart" />
+    
+  
+    
+   
+</Shell>

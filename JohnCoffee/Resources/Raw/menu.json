@@ -1,0 +1,127 @@
+﻿[
+  {
+    "Title": "Juice and Smoothies"
+  },
+  {
+    "Name": "Orange Juice",
+    "Price": 2.75,
+    "Description": "Freshly squeezed Oranges in every glass",
+    "Image": "orange.jpg"
+  },
+  {
+    "Name": "Apple Juice",
+    "Price": 2.75,
+    "Description": "Freshly pressed apple juice",
+    "Image": "apple.jpg"
+  },
+  {
+    "Name": "Sunburst Smoothie",
+    "Price": 3.25,
+    "Description": "Raspberry, Strawberry & Pineapple",
+    "Image": "rasp.jpg"
+  },
+  {
+    "Name": "Energizer Smoothie",
+    "Price": 3.65,
+    "Description": "Blueberry, Banana & ginsing",
+    "Image": "energizer.jpg"
+  },
+  {
+    "Title": "Coffee and Tea"
+  },
+  {
+    "Name": "Espresso",
+    "Price": 4.58,
+    "Description": "Full body, Nutty, Dark choclate",
+    "Image": "espresso.jpg"
+  },
+  {
+    "Name": "Cappucino",
+    "Price": 4.45,
+    "Description": "Medium body, Bitter, Dark choclate",
+    "Image": "capp.jpg"
+  },
+  {
+    "Name": "Americano",
+    "Price": 2.85,
+    "Description": "Full body, Natural wash, Dark roast",
+    "Image": "americano.jpg"
+  },
+  {
+    "Name": "Latte",
+    "Price": 4.46,
+    "Description": "Full body, Milk choclate, Orange",
+    "Image": "latte.jpg"
+  },
+  {
+    "Name": "Flat-White",
+    "Price": 4.25,
+    "Description": "Full body, Nutty, Dark choclate",
+    "Image": "flatwhite.jpg"
+  },
+  {
+    "Name": "Hot Choclate",
+    "Price": 4.15,
+    "Description": "Marshmallows, Dark choclate, Sweet goodness",
+    "Image": "hotchoc.jpg"
+  },
+  {
+    "Title": "Burgers and Sandwiches"
+  },
+  {
+    "Name": "Toasted Ham & Cheese",
+    "Price": 4.75,
+    "Description": "Honey Baked Ham, Charleville Cheese, Fresh Baked Bread",
+    "Image": "hamandcheese.jpg"
+  },
+  {
+    "Name": "BLT",
+    "Price": 6.55,
+    "Description": "Local bacon, Fresh bread, topped with tomato, lettuce, and mayo",
+    "Image": "index.jpg"
+  },
+  {
+    "Name": "Tuna melt",
+    "Price": 6.15,
+    "Description": "Homemade open brown bread, smothered with tuna & topped with grilled cheese ",
+    "Image": "tuna.jpg"
+  },
+  {
+    "Name": "Spicy Chicken Sandwich",
+    "Price": 7.85,
+    "Description": "Brioche bun, Chicken breast, topped with Spicy mayo, lettuce, cheese, & pickle ",
+    "Image": "chicken.jpg"
+  },
+  {
+    "Title": "Vegan dishes"
+
+  },
+  {
+    "Name": "Vegan burger",
+    "Price": 8.12,
+    "Description": "Cauliflower mince, topped with all of natures finest",
+    "Image": "veganburger.jpg"
+  },
+  {
+    "Name": "Vegan salad",
+    "Price": 7.25,
+    "Description": "Pomegrante, chia seeds, mixed leaves, tomatoes and chickpeas",
+    "Image": "salad.jpg"
+  },
+  {
+    "Title": "Treats"
+  },
+  {
+    "Name": "Blueberry muffin",
+    "Price": 2.56,
+    "Description": "Freshley baked muffins, with locally sourced blueberries",
+    "Image": "bluberrymuffin.jpg"
+  },
+  {
+    "Name": "Scones",
+    "Price": 2.25,
+    "Description": "Freshly baked Scones, served with jam and cream",
+    "Image": "scone.jpg"
+  }
+]
+

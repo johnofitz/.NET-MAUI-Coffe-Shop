@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JohnCoffee.View.ReciptPage"
+             xmlns:model="clr-namespace:JohnCoffee.Model"
+             xmlns:viewmodel="clr-namespace:JohnCoffee.ViewModel"
+             x:DataType="viewmodel:ReciptViewModel"
+             Title="Recipt">
+
+
+    <Grid ColumnDefinitions="*"
+          ColumnSpacing="2"
+          RowDefinitions="*,Auto"
+          BackgroundColor="White"
+          RowSpacing="0">
+     
+
+        <ScrollView>
+            <Frame BackgroundColor="AliceBlue">
+                <StackLayout
+                    BackgroundColor="White" 
+                    WidthRequest="500"
+                    Padding="20">
+                    <CollectionView
+                        ItemsSource="{Binding CurrentOrder}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Basket">
+                                <StackLayout  Padding="20">
+                                    <Label Text="{Binding MyTime, StringFormat='Order Time:  {0}'}"
+                                              TextColor="Black"
+                                                FontSize="Micro"
+                                                Margin="0,0,0,30"/>
+                                    <Label Text="{Binding Id, StringFormat='Order No: {0}'}"
+                                              TextColor="Black"
+                                                FontSize="Large"
+                                              Margin="0,0,0,30"/>
+                                    <Label Text="{Binding FullName, StringFormat='Name:  {0}'}"
+                                              TextColor="Black"
+                                                FontSize="Small"
+                                                Margin="0,0,0,10"/>
+
+                                    <Label Text="{Binding Phone, StringFormat='Contact: {0}'}"
+                                           TextColor="Black"
+                                       FontSize="Small"/>
+                                    
+                                    
+                                    <CollectionView ItemsSource="{Binding Orders}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="model:Order">
+                                                <Label Text="{Binding OrderName, StringFormat= '       {0} '}"
+                                                        TextColor="Black"
+                                                        FontSize="Micro"
+                                                        Margin="0,20,0,0"/>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                    <Label Text="{Binding Total,StringFormat='Total: €{0}'}"
+                                          TextColor="Black"
+                                           FontSize="Small"
+                                           FontAttributes="Bold"
+                                           Margin="0,10,0,0"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+        <Button Text="Home" 
+                Command="{Binding GetHistoryReciptCommand}"
+                BackgroundColor="Black"
+                Grid.Row="1"
+                Grid.Column="2"
+                WidthRequest="200"
+                Margin="8"/>
+        <ActivityIndicator 
+                           IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+    </Grid>
+</ContentPage>

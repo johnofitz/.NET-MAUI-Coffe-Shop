@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JohnCoffee.ShoppingCart"
+             xmlns:model="clr-namespace:JohnCoffee.Model"
+             xmlns:viewmodel="clr-namespace:JohnCoffee.ViewModel"
+             x:DataType="viewmodel:ShoppingCartViewModel"
+            
+             Title="{Binding Heading}"
+             >
+    <ScrollView>
+        <!--*,* makes coloumns as big as needed-->
+        <Grid ColumnDefinitions="*"
+          ColumnSpacing="2"
+          RowDefinitions="*,Auto"
+          BackgroundColor="White"
+          RowSpacing="0">
+            <Frame
+            BackgroundColor="AliceBlue">
+                <VerticalStackLayout
+                    BackgroundColor="White" 
+                    WidthRequest="500"
+                    Padding="20">
+                    <Entry
+                Margin="0,0,0,0"
+                Placeholder="First Name"
+                Text="{Binding FirstN}"
+                FontSize="Body"
+                TextColor="Black"/>
+
+                    <Entry
+                Placeholder="Last Name"
+                Text="{Binding LastN}"
+                FontSize="Body"
+                TextColor="Black"/>
+
+                    <Entry
+                Placeholder="Phone Number"
+                Text="{Binding Num}"
+                FontSize="Body"
+                TextColor="Black"
+                Margin="0,0,0,20"/>
+
+                    <CollectionView BackgroundColor="White"
+                        ItemsSource="{Binding Basket}"
+                        SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Basket">
+                                <CollectionView BackgroundColor="White"
+                                                ItemsSource="{Binding Orders}"
+                                                Margin="0,0,0,10"
+                                                SelectionMode="None">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="model:Order">
+                                            <Label Text="{Binding OrderName, StringFormat= '       {0} '}"
+                                            TextColor="Black"
+                                            FontSize="Body"/>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <CollectionView BackgroundColor="White"
+                        ItemsSource="{Binding Basket}"
+                        SelectionMode="Multiple">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Basket">
+                                <Label Text="{Binding Total,StringFormat= 'Total: €{0}'}"
+                                   TextColor="Black"
+                                   FontSize="Small"
+                                   FontAttributes="Bold"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+            </Frame>
+            <Button Text="Confirm Order" 
+                Command="{Binding GetPlaceOrderCommand}"
+                BackgroundColor="Black"
+                Grid.Row="1"
+                Grid.Column="2"
+                WidthRequest="200"
+                Margin="8"/>
+            <ActivityIndicator 
+                           IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>
